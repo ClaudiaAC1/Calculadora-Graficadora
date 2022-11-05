@@ -576,15 +576,18 @@ public class cientifica extends javax.swing.JPanel {
         txtOperacion.setText(txtOperacion.getText() + "^");
     }//GEN-LAST:event_potencia2ActionPerformed
 
+    
     private void integralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_integralActionPerformed
         // TODO add your handling code here:
         lbAux.setText(evaluador());
-        System.out.println(lbAux.getText());
+        System.out.println("btnIntegral "+lbAux.getText());
     }//GEN-LAST:event_integralActionPerformed
     
     
 
     public String evaluador() {
+        
+        System.out.println(txtOperacion.getText());
         String cad = e.analizaCadena(txtOperacion.getText(), "0.0");
         cad = cad.replace("0.0", "x");
         
@@ -594,8 +597,9 @@ public class cientifica extends javax.swing.JPanel {
     }
     
     public String getOperacion() {
-        //System.out.println("cad= "+ cad);
-        return evaluador();
+        System.out.println("cad= "+ lbAux.getText());
+        lbAux.setText(evaluador());
+        return lbAux.getText();
         
     }
 
