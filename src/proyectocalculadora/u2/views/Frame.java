@@ -17,6 +17,11 @@ public class Frame extends javax.swing.JFrame {
      */
     public Frame() {
         initComponents();
+        //agrego el componente integrales al componente calculadora para poder 
+        // interactuar y pasarle los datos correspondientes
+        calculadora.setIntegrales((Integrales) jpGrafica);
+        jpGrafica.setCalculadora(calculadora);
+                
     }
 
     /**
@@ -29,18 +34,18 @@ public class Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jpGrafica = new Integrales();
         calculadora = new proyectocalculadora.u2.views.cientifica();
+        jpGrafica = new proyectocalculadora.u2.Utils.Integrales();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("CALCULADORA");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, -1, -1));
-        getContentPane().add(jpGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 640, 470));
 
         calculadora.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(calculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        getContentPane().add(jpGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 640, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,10 +79,8 @@ public class Frame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Frame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Frame().setVisible(true);
         });
         
         
@@ -87,6 +90,6 @@ public class Frame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private proyectocalculadora.u2.views.cientifica calculadora;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jpGrafica;
+    private proyectocalculadora.u2.Utils.Integrales jpGrafica;
     // End of variables declaration//GEN-END:variables
 }

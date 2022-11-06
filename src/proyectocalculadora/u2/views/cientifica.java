@@ -4,17 +4,17 @@
  */
 package proyectocalculadora.u2.views;
 
-import javax.swing.JOptionPane;
 import proyectocalculadora.u2.Utils.Derivada;
 import proyectocalculadora.u2.Utils.Operaciones;
 import proyectocalculadora.u2.Utils.Evaluador;
+import proyectocalculadora.u2.Utils.Integrales;
 
 /**
  *
  * @author claua
  */
 public class cientifica extends javax.swing.JPanel {
-
+    Integrales i;
     Operaciones ope = new Operaciones();
     Derivada d = new Derivada();
     Evaluador e = new Evaluador();
@@ -25,7 +25,6 @@ public class cientifica extends javax.swing.JPanel {
      */
     public cientifica() {
         initComponents();
-
     }
 
     /**
@@ -576,15 +575,16 @@ public class cientifica extends javax.swing.JPanel {
         txtOperacion.setText(txtOperacion.getText() + "^");
     }//GEN-LAST:event_potencia2ActionPerformed
 
+    
     private void integralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_integralActionPerformed
         // TODO add your handling code here:
         lbAux.setText(evaluador());
-        System.out.println(lbAux.getText());
+        System.out.println("btnIntegral "+lbAux.getText());
     }//GEN-LAST:event_integralActionPerformed
     
-    
-
     public String evaluador() {
+        
+        System.out.println(txtOperacion.getText());
         String cad = e.analizaCadena(txtOperacion.getText(), "0.0");
         cad = cad.replace("0.0", "x");
         
@@ -594,11 +594,16 @@ public class cientifica extends javax.swing.JPanel {
     }
     
     public String getOperacion() {
-        //System.out.println("cad= "+ cad);
-        return evaluador();
+        System.out.println("cad= "+ lbAux.getText());
+        lbAux.setText(evaluador());
+        return lbAux.getText();
         
     }
-
+    
+    public void setIntegrales(Integrales i){
+        this.i = i;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnC;

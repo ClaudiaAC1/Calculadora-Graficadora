@@ -19,7 +19,8 @@ import javax.swing.JTextField;
 public class Integrales extends JPanel {
 
     metodos grafica = new metodos();
-    cientifica c = new cientifica();
+    //cientifica c = new cientifica();
+    cientifica c;
 
     JButton BotonGraficar = new JButton("Graficar");
     JButton BotonIntegrar = new JButton("Integrar");
@@ -93,8 +94,8 @@ public class Integrales extends JPanel {
 
             double w = (0.004 / 2) * (m3 + Math.abs(m4));
             double p = -(0.50) / ((Math.abs(m2)));
-            System.out.println("c.getOp "+c.getOperacion());
-            System.out.println("btn graficar"+metodos.evaluarF(c.getOperacion(), p));
+            System.out.println("c.getOp " + c.getOperacion());
+            System.out.println("btn graficar" + metodos.evaluarF(c.getOperacion(), p));
             //String funcion= "sen(x)";
             for (int x1 = 0; x1 < 459; x1++) {
                 //double y1 = metodos.alto*p * metodos.f(w * (x1 + (m1*longitud1))) + (m3*longitud2);
@@ -170,4 +171,7 @@ public class Integrales extends JPanel {
         });
     }
 
+    public void setCalculadora(cientifica c){
+        this.c = c;
+    }
 }
